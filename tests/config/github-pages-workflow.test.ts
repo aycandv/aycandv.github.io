@@ -16,9 +16,10 @@ describe("GitHub Pages workflow", () => {
     expect(workflow).toContain("npm ci");
     expect(workflow).toContain("npm run build");
     expect(workflow).toContain('name: github-pages');
-    expect(workflow).toContain("artifact.tar.gz");
+    expect(workflow).toContain("path: ${{ runner.temp }}/artifact.tar");
     expect(workflow).toContain("branches: [main]");
     expect(workflow).not.toContain("uses: actions/configure-pages@v5");
     expect(workflow).not.toContain("uses: actions/upload-pages-artifact@v4");
+    expect(workflow).not.toContain("artifact.tar.gz");
   });
 });
