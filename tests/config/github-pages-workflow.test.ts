@@ -9,12 +9,16 @@ describe("GitHub Pages workflow", () => {
     );
     const workflow = readFileSync(workflowPath, "utf8");
 
-    expect(workflow).toContain("uses: actions/configure-pages@v5");
-    expect(workflow).toContain("uses: actions/upload-pages-artifact@v4");
+    expect(workflow).toContain("uses: actions/checkout@v5");
+    expect(workflow).toContain("uses: actions/setup-node@v6");
+    expect(workflow).toContain("uses: actions/upload-artifact@v7");
     expect(workflow).toContain("uses: actions/deploy-pages@v4");
     expect(workflow).toContain("npm ci");
     expect(workflow).toContain("npm run build");
-    expect(workflow).toContain("path: ./out");
+    expect(workflow).toContain('name: github-pages');
+    expect(workflow).toContain("artifact.tar.gz");
     expect(workflow).toContain("branches: [main]");
+    expect(workflow).not.toContain("uses: actions/configure-pages@v5");
+    expect(workflow).not.toContain("uses: actions/upload-pages-artifact@v4");
   });
 });
