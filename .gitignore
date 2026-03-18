@@ -1,2 +1,6 @@
 .specs/
 AGENTS.md
+node_modules/
+.next/
+out/
+coverage/
