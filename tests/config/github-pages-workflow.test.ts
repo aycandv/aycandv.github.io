@@ -16,6 +16,6 @@ describe("GitHub Pages workflow", () => {
     expect(workflow).toContain("npm run build");
     expect(workflow).toContain("path: ./out");
     expect(workflow).toContain("branches: [main]");
-    expect(workflow).toContain("FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true");
+    expect(workflow).toContain('FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"');
   });
 });
